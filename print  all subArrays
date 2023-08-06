@@ -21,3 +21,5 @@ public class Main
          System.out.println("Total no of subArrays = "+count);
 	}
 }
+
+Total sum = n(n+1)/2
