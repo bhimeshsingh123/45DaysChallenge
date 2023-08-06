@@ -1,4 +1,4 @@
-//Brute forse approch
+//Brute forse approch   TC O(n3)
 
 lass Solution {
     public int subarraySum(int[] nums, int k) {
@@ -11,6 +11,24 @@ lass Solution {
                  for(int x=start;x<=end;x++){
                    sum+=nums[x];
                  }
+                 if(sum==k){
+                     count++;
+                 }
+          }
+        }
+        return count;
+    }
+}
+
+//Second optimize approch TC O(n2)
+
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int count=0;
+        for(int i=0;i<nums.length;i++){
+           int sum=0;
+            for(int j=i;j<nums.length;j++){
+                 sum+=nums[j];
                  if(sum==k){
                      count++;
                  }
