@@ -1,0 +1,28 @@
+//brute force approch 
+
+(similar to 3 sum take 4 ioops)
+
+// better approch 
+class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        Set<List<Integer>> set = new HashSet<>();
+           for(int i = 0;i<nums.length;i++){
+               for(int j = i+1;j<nums.length;j++){
+                   Set<Integer> hm = new HashSet<>();
+                   for(int k = j+1;k<nums.length;k++){
+                       long  sum =nums[i]+nums[j]+nums[k];
+                        int fourth = target-(int)sum;
+                        if(hm.contains(fourth)){
+                          List<Integer> temp = Arrays.asList(nums[i],nums[j],nums[k],fourth);
+                              Collections.sort(temp);
+                             set.add(temp); 
+                           }
+                            
+                           hm.add(nums[k]);
+                        }
+                      }    
+                    }
+              List<List<Integer>> ans = new ArrayList<>(set);
+              return ans;
+    }
+}
