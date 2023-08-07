@@ -22,7 +22,7 @@ class Solution {
     }
 }
 
-//better Approch 
+//better Approch    TC O(n2)   SC O(2*n)
 lass Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Set<List<Integer>> set = new HashSet<>();
@@ -40,6 +40,40 @@ lass Solution {
             }
         }
         List<List<Integer>> ans = new ArrayList<>(set);
+        return ans;
+    }
+}
+
+//Two pointer Approch  TC O(n2)
+
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> ans = new ArrayList<>();
+        for(int i=0;i<nums.length;i++){
+            //Remove Duplicates 
+            if(i>0 && nums[i] == nums[i-1]) continue;
+            int j=i+1;
+            int k= nums.length-1;
+            //Moving 2  pointers 
+            while(j<k){
+                int sum = nums[i]+nums[j]+nums[k];        
+                if(sum>0){
+                    k--;
+                }else if(sum<0){
+                    j++;
+                }else{
+                    List<Integer> temp = Arrays.asList(nums[i],nums[j],nums[k]);
+                    ans.add(temp);
+                    j++;
+                    k--;
+                    //skip the duplicates:
+                    while(j<k && nums[j]==nums[j-1]) j++;
+                    while(j<k && nums[k]==nums[k-1]) k--;
+                }
+            }
+        }
+         
         return ans;
     }
 }
