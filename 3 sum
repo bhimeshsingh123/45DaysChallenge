@@ -22,7 +22,7 @@ class Solution {
     }
 }
 
-//better Approch    TC O(n2)   SC O(2*n)
+//better Approch    TC O(n2)   SC O(2*n0 of unique triplets)
 lass Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Set<List<Integer>> set = new HashSet<>();
