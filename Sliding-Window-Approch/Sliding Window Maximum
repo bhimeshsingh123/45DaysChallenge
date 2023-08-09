@@ -1,0 +1,17 @@
+// Brute forse Approch TC  O(n2)   SC (n-k+1)       //Not full optimize using priority QUeue we can optimize
+
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        int sum = 0;
+        int Maximum[] =  new int[nums.length-k+1]; 
+        
+        for(int i=0;i<nums.length-k+1;i++){
+              int maxNo = Integer.MIN_VALUE;
+             for(int j=i;j<k+i;j++){
+                 maxNo = Math.max(maxNo,nums[j]);
+             }
+             Maximum[i] = maxNo; 
+        }
+        return Maximum;
+    }
+}
