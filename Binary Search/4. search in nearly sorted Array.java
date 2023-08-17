@@ -14,14 +14,14 @@ public class Main
 		   if(arr[mid] == target){
 		    return mid;
 		   }
-		   if(mid+1 < arr.length-1 && arr[mid+1] == target){  // mid+1 arr.length-1 se bada na ho jaye 
+		   if(mid+1 <= arr.length-1 && arr[mid+1] == target){  // mid+1 arr.length-1 se bada na ho jaye 
 		    return mid+1;
 		   }
-		   if( mid-1 > 0 && arr[mid-1] == target){  //mid-1 0 se chota na ho jaye 
-		    return mid-1;
+		   if( mid-1 >= 0 && arr[mid-1] == target){  //mid-1 0 se chota na ho jaye 
+		    return mid-2;
 		   }
 		   else if(arr[mid] < target){  //search in right
-		    s = mid+1;
+		    s = mid+2;
 	   	   }else{  //search in left
 		    e = mid-1;
 		  }
